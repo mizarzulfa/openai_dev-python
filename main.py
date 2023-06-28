@@ -2,14 +2,14 @@ import openai
 from api_key_personal import api
 
 openai.api_key = api()
-length_limit = 10
+length_limit = 18
 whatModel = "gpt-3.5-turbo"
-question = "tell me in a short what is AI?"
+question = "what makes AI so useful? short answer!"
 
 # print(openai.Model.retrieve("gpt-3.5-turbo"))
 
 responses = openai.ChatCompletion.create(
-    temperature=0,
+    temperature=1,
     n=1,
     max_tokens=length_limit,
     model=whatModel,

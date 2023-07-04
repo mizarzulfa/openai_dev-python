@@ -8,7 +8,7 @@ def model_list():
     return list
 
 
-model = model_list()[2]
+model = model_list()[1]
 
 # Set the endpoint URL
 url = "https://api.openai.com/v1/chat/completions"
@@ -34,10 +34,13 @@ response = requests.post(url, headers=headers_request, json=payload)
 json_data = response.json()
 
 # Send the GET request to Retrieve model basic information
-model_get = requests.get(model_url, headers=headers_request)
-json_data2 = model_get.json()
+# model_get = requests.get(model_url, headers=headers_request)
+# json_data2 = model_get.json()
 
 
 formatted_data = json.dumps(json_data, indent=4)
-formatted_data2 = json.dumps(json_data2, indent=4)
-print(formatted_data + "\n" + formatted_data2)
+# formatted_data2 = json.dumps(json_data2, indent=4)
+# print(formatted_data + "\n" + formatted_data2)
+print(formatted_data)
+
+print(json_data["choices"][0]["message"]["content"])

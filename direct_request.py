@@ -1,4 +1,5 @@
 import requests
+import json
 from api_key_personal import api
 
 # Set the endpoint URL
@@ -14,14 +15,14 @@ headers = {
 payload = {
     "model": "gpt-3.5-turbo",
     "messages": [{"role": "user", "content": "Say this is a test!"}],
-    "temperature": 1
 }
 
 # Send the POST request
 response = requests.post(url, headers=headers, json=payload)
 
 # Get the response JSON data
-data = response.json()
+json_data = response.json()
 
-# Print the response
-print(data)
+
+formatted_data = json.dumps(json_data, indent=4)
+print(formatted_data)
